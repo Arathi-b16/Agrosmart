@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}Fertilizer Shops{% endblock %}{% block content %}
+<h1>Nearby Fertilizer Shops</h1><p>Enter a State and District to search the directory.</p>
+<form class="shop-search" method="get"><input name="state" value="{{state}}" placeholder="State"><select name="district"><option value="">Select District</option>{% for d in districts %}<option {% if district==d %}selected{% endif %}>{{d}}</option>{% endfor %}</select><button>Search Shops</button></form>
+<div class="shop-grid">{% for s in rows %}<div class="shop"><h3>{{s.name}}</h3><p><b>State:</b> {{s.state}}</p><p><b>District:</b> {{s.district}}</p><p>{{s.address}}</p></div>{% else %}<div class="panel">No shops found for this selection.</div>{% endfor %}</div>
+{% endblock %}

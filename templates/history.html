@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}History{% endblock %}{% block content %}
+<div class="top"><div><h1>Reading History</h1><p>Stored sensor and advisory records</p></div></div>
+<div class="table-wrap"><table><tr><th>Date</th><th>N</th><th>P</th><th>K</th><th>Temp °C</th><th>Moisture %</th><th>Crop 1</th><th>Crop 2</th><th>Fertilizer</th><th>Why</th></tr>
+{% for r in rows %}<tr><td>{{r.created_at}}</td><td>{{r.nitrogen}}</td><td>{{r.phosphorus}}</td><td>{{r.potassium}}</td><td>{{r.temperature}}</td><td>{{r.moisture}}</td><td>{{r.crop1}}</td><td>{{r.crop2}}</td><td>{{r.fertilizer}}</td><td>{{r.why}}</td></tr>{% else %}<tr><td colspan="10">No saved readings yet.</td></tr>{% endfor %}</table></div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}{% block title %}Dashboard{% endblock %}{% block content %}
+<div class="top"><div><h1>Dashboard</h1><p>Live soil monitoring and fertilizer advisory</p></div><div class="status"><span id="dot"></span> ESP32 Live Data</div></div>
+<section class="cards">
+<div class="card"><h3>Nitrogen (N)</h3><strong id="n">0</strong><span>mg/kg</span></div>
+<div class="card"><h3>Phosphorus (P)</h3><strong id="p">0</strong><span>mg/kg</span></div>
+<div class="card"><h3>Potassium (K)</h3><strong id="k">0</strong><span>mg/kg</span></div>
+<div class="card"><h3>Temperature</h3><strong id="t">0</strong><span>°C</span></div>
+<div class="card"><h3>Moisture</h3><strong id="m">0</strong><span>%</span></div>
+</section>
+<section class="grid2"><div class="panel"><h2>NPK Graph</h2><canvas id="npkChart"></canvas></div>
+<div class="panel"><h2>Suitable Crops</h2><div class="crop"><b id="crop1">Waiting...</b><b id="crop2">Waiting...</b></div><h2>Fertilizer Recommendation</h2><div class="fert" id="fert">Waiting for sensor data...</div><h3>Why is it needed?</h3><p id="why">Sensor readings will determine the recommendation.</p><button id="saveBtn">Save Current Reading to History</button></div></section>
+<p class="updated">Last update: <span id="updated">-</span></p>
+<script src="{{url_for('static',filename='js/dashboard.js')}}"></script>
+{% endblock %}
